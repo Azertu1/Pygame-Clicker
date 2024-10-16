@@ -49,10 +49,6 @@ mydb.commit()
 mycursor.execute("INSERT INTO score VALUES (%s, %s)", (id, 0))
 mydb.commit()
 
-# TODO: Système de détection de clic et écriture des coordonées du clic dans une table [position_clic : id_joueur(INT), x(INT), y(INT)]
-# TODO: Terminer le système de parties (côté serveur aussi)
-# TODO: Faire une interface complete (qui affiche "partie déjà en cours" quand la table SQL go =1 et qui montre un leaderboard à la fin)
-
 # [[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[BOUCLE DE JEU]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]
 
 while True :

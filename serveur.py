@@ -36,9 +36,6 @@ seconde=30
 temps=seconde*30
 pause=False
 
-# TODO: Système de lecture des coordonées des clic depuis une table [position_clic : id_joueur(INT), x(INT), y(INT)], verification et ajout de points dans une table [score : id_joueur(INT), score(INT)]
-# TODO: Ajout d'un système anticheat (anti spam clic, anti modification BDD score par joueur, vérification des coordonées clic (si les coordonées relatives du clic par rapport à la cible sont toujours les même)
-# TODO: Terminer le système de parties (côté client aussi)
 while True : # boucle de jeu
 
     clock.tick(30)
