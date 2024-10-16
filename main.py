@@ -1,5 +1,8 @@
-import pygame, sys
-from random import *
+import random
+from random import choice, randint
+import mysql.connector
+import pygame
+import sys
 from pygame.locals import *
 pygame.init()
 
@@ -48,25 +51,36 @@ while temps>0 : # boucle de jeu
                 point+=1
             clic+=1
 
-    if position_perso.left>=700:
-        a=0-1*multi
+        # <<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<Algorithme de déplacement>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>
 
-    elif position_perso.left<=100:
-        a=1*multi
+        if position_perso.left >= 700:
+            a = 0 - 1 * multi
 
-    if position_perso.top>=500:
-        b=0-1*multi
+        elif position_perso.left <= 100:
+            a = 1 * multi
 
-    elif position_perso.top<=100:
-        b=1*multi
+        if position_perso.top >= 500:
+            b = 0 - 1 * multi
 
-    else:
-        if i<=0:
-            a=randint(-1,1)*multi
-            b=randint(-1,1)*multi
-            i=frequence
+        elif position_perso.top <= 100:
+            b = 1 * multi
+
+        if i <= 0:
+            a = random.choice([-1, -1, 0, 1, 1]) * multi
+
+            if a == 0:
+                b = random.choice([-2, 2]) * multi
+
+            else:
+                b = random.choice([-1, -1, 0, 1, 1]) * multi
+
+                if b == 0:
+                    a = random.choice([-2, 2]) * multi
+
+            i = frequence
         else:
             pass
+        # <<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>
 
     x,y = pygame.mouse.get_pos()
     position_viseur.topleft = x-50,y-50

@@ -36,11 +36,16 @@ seconde=30
 temps=seconde*30
 pause=False
 
+# TODO: Système de lecture des coordonées des clic depuis une table [position_clic : id_joueur(INT), x(INT), y(INT)], verification et ajout de points dans une table [score : id_joueur(INT), score(INT)]
+# TODO: Ajout d'un système anticheat (anti spam clic, anti modification BDD score par joueur, vérification des coordonées clic (si les coordonées relatives du clic par rapport à la cible sont toujours les même)
+# TODO: Terminer le système de parties (côté client aussi)
 while True : # boucle de jeu
 
     clock.tick(30)
     i-=1
     temps-=1
+    mycursor.execute(str("UPDATE sync SET chrono ="temps))
+    mydb.commit()
 
     #La pause toute les x secondes permet de synchroniser les position de tout les client connectés en reglant l'élément "go" du tableau SQL à 1. Cela déplace instantanément les cibles à des coordonées prédéfinies (identique dans les clients et le serveur)
 
